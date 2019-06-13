@@ -31,7 +31,44 @@ public class CustomerTest {
 	 * Provide at least two more test cases carefully chosen so that they satisfy our testing
 	 * strategy basics i.e. input partition etc
 	 */
+	@Test
+	public void testCase2()
+	{
+		me.addRental(r1);
+		me2.addRental(r1);
+		String result = "Rental Record for Nadir\r\n" + 
+				"	Spancer	33.5\r\n";
+		if(result.equals(me.statement()))
+		{
+			assert true;
+		}
+		String result2 = "Rental Record for Allah Ditta\r\n" + "Spancer	33.5\r\n";
+		if(result2.equals(me2.statement()))
+		{
+			assert true;
+		}
+	}
+	@Test
+	public void testCase3()
+	{
+		me.addRental(r1);
+		me.addRental(r2);
+		me2.addRental(r1);
+		me2.addRental(r2);
+		
+		String result = "Rental Record for Nadir\r\n" + "Spancer 33.5\r\n" + "	Speed	12.0";
+		if(result.equals(me.statement()))
+		{
+			assert true;
+		}
+		String result2 = "Rental Record for Allah Ditta\r\n" + "	Spancer	33.5\r\n" + "	Speed	12.0";
+		if(result2.equals(me2.statement()))
+		{
+			assert true;
+		}
+	}
 	
+}
 	
 
-}
+
